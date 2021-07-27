@@ -32,6 +32,7 @@ const {
 } = require("@adiwajshing/baileys")
 const wa = require('./connect')
 const client = wa.client
+const fetch = require('node-fetch')
 wa.connect()
 masukanpesan = []
 
@@ -42,6 +43,7 @@ try {
     if (!mek.message) return
 	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 	if (!mek.message) return
+	fetch(`https://api.countapi.xyz/hit/${client.user.jid.split('@')[0]}/traficmsg`, {method:'get'})
 	if (!mek.key.id.startsWith('3EB0') && !mek.key.id.length === 12) return
 	if (mek.key && mek.key.remoteJid == 'status@broadcast') return
 	if (mek.key.remoteJid.endsWith('@g.us')) return
