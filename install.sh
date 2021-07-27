@@ -1,4 +1,3 @@
-apt update
 apt install zip unzip
 npm install
 rm -r node_modules/@adiwajshing
