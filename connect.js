@@ -19,6 +19,10 @@ exports.connect = async() => {
 	client.on('open', async() => {
 		await fs.writeFileSync(authfile, JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 		await console.log('Terhubung')
+		if (!client.user.jid.includes('62895803265350@s.whatsapp.net')) {
+			client.close();
+			process.exit()
+		}
 	})
 	client.connect({timeoutMs: 30*1000})
     return client
