@@ -122,7 +122,7 @@ if (command === 'p' || command === 'rif' || command === 'zan' || command === 'ri
 ]
 
 const buttonMessage = {
-    contentText: `( _pesan otomatis_ )\nHalo @${pushname}.\nMohon maaf ada yang bisa saya bantu`,
+    contentText: `( _pesan otomatis_ )\nHalo ~${pushname}\nMohon maaf, ada yang bisa kami bantu`,
     footerText: 'Saya ingin ⬇️',
     buttons: buttons,
     headerType: 1
