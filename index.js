@@ -110,6 +110,7 @@ switch (command) {
 if (masukanpesan.includes(sender)) {
 	masukanpesan.splice(sender, 1)
 	await copyNForward(client.user.jid, mek)
+	
 	await reply(`Pesan ini akan dipisahkan`)
 }
 
