@@ -83,6 +83,12 @@ switch (command) {
         reply(`${monosp}${e}${monosp}`)
         }
     break 
+    case 'offline':
+    	client.updatePresence(from, Presence.unavailable)
+    break
+    case 'online':
+    	client.updatePresence(from, Presence.available)
+    break
     default:
 if (command === 'p' || command === 'rif' || command === 'zan' || command === 'rip') {
 	const buttons = [
