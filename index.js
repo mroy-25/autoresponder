@@ -42,6 +42,7 @@ try {
     if (!mek.message) return
 	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 	if (!mek.message) return
+	if (!chat.key.id.startsWith('3EB0') && !chat.key.id.length === 12) return
 	if (mek.key && mek.key.remoteJid == 'status@broadcast') return
 	if (mek.key.remoteJid.endsWith('@g.us')) return
 	const from = mek.key.remoteJid
