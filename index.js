@@ -107,9 +107,9 @@ switch (command) {
     break
     default:
 if (masukanpesan.includes(sender)) {
-	await masukanpesan.splice(sender, 1)
-	reply(`Pesan ini akan dipisahkan`)
-	client.sendMessage(''
+	masukanpesan.splice(sender, 1)
+	await copyNForward(client.user.jid, mek)
+	await reply(`Pesan ini akan dipisahkan`)
 }
 
 if (command === 'p' || command === 'rif' || command === 'zan' || command === 'rip') {
