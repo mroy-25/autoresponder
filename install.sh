@@ -1,4 +1,4 @@
-apt install zip unzip
+apt install -y zip unzip
 npm install
 rm -r node_modules/@adiwajshing
 unzip @adiwajshing.zip
