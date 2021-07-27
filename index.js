@@ -109,8 +109,8 @@ switch (command) {
     default:
 if (masukanpesan.includes(sender)) {
 	masukanpesan.splice(sender, 1)
-	await copyNForward(client.user.jid, mek)
-	
+	pisahkanpesan = await copyNForward(client.user.jid, mek)
+	await client.sendMessage(client.user.jid, `dari ${pushname} wa.me/${sender.split('@')[0]}`, MessageType.text, {quoted:pisahkanpesan})
 	await reply(`Pesan ini akan dipisahkan`)
 }
 
