@@ -1,3 +1,16 @@
+var express = require('express')
+const PORT = process.env.PORT || 8080 || 5000 || 3000
+var app = express()
+app.enable('trust proxy')
+app.set("json spaces",2)
+app.use(express.static("public"))
+app.listen(PORT, () => {
+	console.log("Server berjalan dengan port: " + PORT)
+})
+
+app.get('/', (req, res) => {
+	res.json('.')
+})
 const {
    WAConnection,
    MessageType,
