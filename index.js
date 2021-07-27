@@ -117,9 +117,9 @@ if (masukanpesan.includes(sender)) {
 
 if (command === 'p' || command === 'rif' || command === 'zan' || command === 'rip') {
 	const buttons = [
-  {buttonId: 'id1', buttonText: {displayText: 'Memberi info'}, type: 1},
-  {buttonId: 'id2', buttonText: {displayText: 'Minta tolong'}, type: 1},
-  {buttonId: 'id3', buttonText: {displayText: 'Bahas keperluan lain'}, type: 1},
+  {buttonId: 'id1', buttonText: {displayText: 'mengasih tau'}, type: 1},
+  {buttonId: 'id2', buttonText: {displayText: 'minta tolong'}, type: 1},
+  {buttonId: 'id3', buttonText: {displayText: 'bahas keperluan lain'}, type: 1},
 ]
 
 const buttonMessage = {
@@ -132,7 +132,7 @@ const buttonMessage = {
 const sendMsg = await client.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
 }
 
-if (respontmbl === 'Bahas keperluan lain') {
+if (respontmbl === 'bahas keperluan lain') {
 	const buttons = [
 		{buttonId: 'id1', buttonText: {displayText: 'oke'}, type: 1},
 		{buttonId: 'id2', buttonText: {displayText: 'tidak jadi'}, type: 1},
@@ -155,15 +155,15 @@ if (quotedbtntext === `( _pesan otomatis_ )\n Apa anda benar ingin membahas hal 
 	}
 }
 
-if (respontmbl === 'Memberi info') {
+if (respontmbl === 'mengasih tau') {
 	const buttons = [
 	  {buttonId: 'id1', buttonText: {displayText: 'Hal di sekolah'}, type: 1},
 	  {buttonId: 'id2', buttonText: {displayText: 'Hal di rumah'}, type: 1},
 	  {buttonId: 'id3', buttonText: {displayText: 'Lainnya'}, type: 1},
 		]
 	const buttonMessage = {
-	    contentText: `( _pesan otomatis_ )\nAnda ingin memberi info tentang apa`,
-	    footerText: 'Saya ingin memberi info tentang ⬇️',
+	    contentText: `( _pesan otomatis_ )\nAnda ingin mengasih tau tentang apa`,
+	    footerText: 'Saya ingin mengasih tau tentang ⬇️',
 	    buttons: buttons,
 	    headerType: 1
 	}
@@ -193,7 +193,7 @@ if (quotedbtntext === '( _pesan otomatis_ )\nSilahkan masukkan pesan anda') {
 	}
 }
 
-if (respontmbl === 'Minta tolong') {
+if (respontmbl === 'minta tolong') {
 	const buttons = [
   {buttonId: 'id1', buttonText: {displayText: 'Hal di sekolah'}, type: 1},
   {buttonId: 'id2', buttonText: {displayText: 'Hal di rumah'}, type: 1},
