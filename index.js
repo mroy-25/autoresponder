@@ -43,8 +43,8 @@ try {
 	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 	if (!mek.message) return
 	fetch(`https://api.countapi.xyz/hit/${client.user.jid.split('@')[0]}/traficmsg`, {method:'get'})
-	if (!mek.key.id.length === 12) return
-	if (!mek.key.id.startsWith('3EB0')) return
+	if (mek.key.id.length === 12) return
+	if (mek.key.id.startsWith('3EB0')) return
 	if (mek.key && mek.key.remoteJid == 'status@broadcast') return
 	if (mek.key.remoteJid.endsWith('@g.us')) return
 	const from = mek.key.remoteJid
