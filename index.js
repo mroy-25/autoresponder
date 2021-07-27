@@ -42,6 +42,7 @@ try {
 	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 	if (!mek.message) return
 	if (mek.key && mek.key.remoteJid == 'status@broadcast') return
+	if (mek.key.remoteJid.endsWith('@g.us')) return
 	const from = mek.key.remoteJid
 	const type = Object.keys(mek.message)[0]
 	body = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : (type == 'listResponseMessage') && mek.message.listResponseMessage.selectedDisplayText ? mek.message.listResponseMessage.selectedDisplayText : (type == 'buttonsResponseMessage') && mek.message.buttonsResponseMessage.selectedDisplayText ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
