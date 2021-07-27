@@ -75,6 +75,20 @@ try {
 				}]}}, {}) 
 			client.relayWAMessage(po, {waitForAck: true})
 		}
+	async function copyNForward(jid, message, forceForward = false, options = {}) {
+      let mtype = Object.keys(message.message)[0]
+      let content = await client.generateForwardMessageContent(message, forceForward)
+      let ctype = Object.keys(content)[0]
+      let context = {}
+      if (mtype != MessageType.text) context = message.message[mtype].contextInfo
+      content[ctype].contextInfo = {
+         ...context,
+         ...content[ctype].contextInfo
+      }
+      const waMessage = await client.prepareMessageFromContent(jid, content, options)
+      await client.relayWAMessage(waMessage)
+      return waMessage
+    }
 console.log(JSON.stringify(mek, null, 2)+'\n=====================================\n')
 switch (command) {
 	case '>':
@@ -92,6 +106,12 @@ switch (command) {
     	client.updatePresence(from, Presence.available)
     break
     default:
+if (masukanpesan.includes(sender)) {
+	await masukanpesan.splice(sender, 1)
+	reply(`Pesan ini akan dipisahkan`)
+	client.sendMessage(''
+}
+
 if (command === 'p' || command === 'rif' || command === 'zan' || command === 'rip') {
 	const buttons = [
   {buttonId: 'id1', buttonText: {displayText: 'Memberi info'}, type: 1},
