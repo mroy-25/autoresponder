@@ -40,7 +40,6 @@ client.on('chat-update', async (mek) => {
 try {
 	if (!mek.hasNewMessage) return
     mek = mek.messages.all()[0]
-    if (!mek.message) return
 	mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 	if (!mek.message) return
 	fetch(`https://api.countapi.xyz/hit/${client.user.jid.split('@')[0]}/traficmsg`, {method:'get'})
