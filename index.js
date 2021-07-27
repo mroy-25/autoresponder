@@ -11,6 +11,10 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
 	res.json('.')
 })
+app.get('/waconnect', async(req, res) => {
+	await wa.connect()
+	res.json('wa.connect()')
+})
 const {
    WAConnection,
    MessageType,
