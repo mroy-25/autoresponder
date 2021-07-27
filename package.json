@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "@adiwajshing/baileys": "latest",
-    "axios": "latest",
-    "express": "latest"
+    "express": "latest",
+    "node-fetch": "latest"
   },
   "scripts": {
     "start": "node index.js"
