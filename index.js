@@ -33,6 +33,7 @@ const {
 const wa = require('./connect')
 const client = wa.client
 wa.connect()
+masukanpesan = []
 
 client.on('chat-update', async (mek) => {
 try {
@@ -114,16 +115,17 @@ if (respontmbl === 'Bahas keperluan lain') {
 		{buttonId: 'id2', buttonText: {displayText: 'tidak jadi'}, type: 1},
 		]
 	const buttonMessage = {
-	    contentText: `( _pesan otomatis_ )\nSilahkan masukkan pesan anda untuk membahas kepentingan lain`,
-	    footerText: 'kirim pesan pentingnya',
+	    contentText: `( _pesan otomatis_ )\n Apa anda benar ingin membahas hal lain ?`,
+	    footerText: 'lanjutkan',
 	    buttons: buttons,
 	    headerType: 1
 	}
 	client.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
 }
 
-if (quotedbtntext === `( _pesan otomatis_ )\nSilahkan masukkan pesan anda untuk membahas kepentingan lain`) {
+if (quotedbtntext === `( _pesan otomatis_ )\n Apa anda benar ingin membahas hal lain ?`) {
 	if (respontmbl === 'oke') {
+		masukanpesan.push(sender)
 		reply('( _pesan otomatis_ )\nSilahkan kirim pesan penting anda kepada kami')
 	} else if (respontmbl === 'tidak jadi') {
 		reply(`Terimakasih telah menghubungi kami, kami berharap anda tidak spam _( kirim pesan berkali kali bersifat mengganggu )_`)
@@ -161,6 +163,7 @@ if (respontmbl === 'Lainnya' || respontmbl === 'Hal di sekolah' || respontmbl ==
 
 if (quotedbtntext === '( _pesan otomatis_ )\nSilahkan masukkan pesan anda') {
 	if (respontmbl === 'Ya') {
+		masukanpesan.push(sender)
 		reply('( _pesan otomatis_ )\nSilahkan kirim pesan penting anda')
 	} else if (respontmbl === 'Tidak') {
 		reply(`Terimakasih telah menghubungi kami, kami berharap anda tidak spam _( kirim pesan berkali kali bersifat mengganggu )_`)
